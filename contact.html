@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Royal Authentics</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --pearl-white: #F8F6F0;
+            --navy-blue: #1E3A8A;
+            --rose-gold: #E8B4B8;
+            --dark-navy: #0F172A;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--pearl-white);
+            color: var(--dark-navy);
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--navy-blue), var(--dark-navy));
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(30, 58, 138, 0.1);
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            width: auto;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--pearl-white) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--rose-gold) !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--navy-blue), var(--dark-navy));
+            color: var(--pearl-white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form-section {
+            padding: 60px 0;
+        }
+
+        .contact-form label {
+            font-weight: 500;
+        }
+
+        .form-control:focus {
+            border-color: var(--rose-gold);
+            box-shadow: 0 0 0 0.2rem rgba(232, 180, 184, 0.25);
+        }
+
+        .btn-send {
+            background-color: var(--rose-gold);
+            color: var(--pearl-white);
+            font-weight: 600;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .btn-send:hover {
+            background-color: #d4a5a9;
+        }
+
+        .map {
+            width: 100%;
+            height: 300px;
+            background-color: #ccc;
+            margin-bottom: 40px;
+        }
+
+        .footer {
+            background: var(--navy-blue);
+            color: var(--pearl-white);
+            padding: 50px 0;
+        }
+
+        .footer h5 {
+            color: var(--rose-gold);
+            margin-bottom: 20px;
+        }
+
+        .footer a {
+            color: var(--pearl-white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--rose-gold);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/c87d6c4b-2bac-49c9-b97d-a57d1cfb4288.png" alt="Royal Authentics">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="brands.html">Brands</a></li>
+                <li class="nav-item"><a class="nav-link" href="Authenticity.html">Authenticity</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <h1 class="hero-title">Contact Us</h1>
+        <p>We’d love to hear from you! Reach out with questions, feedback, or support needs.</p>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-form-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-6 mb-4">
+                <div class="map"> <!-- You can embed a real Google Map here -->
+                    <!-- Example placeholder -->
+                    <iframe width="100%" height="100%" frameborder="0" style="border:0"
+                            src="https://maps.google.com/maps?q=colombo&sll=6.9271,79.8612&z=13&output=embed"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <form class="contact-form">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Your name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="you@example.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" rows="5" class="form-control" placeholder="Write your message..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-send"><i class="fas fa-paper-plane me-2"></i>Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h5>Royal Authentics</h5>
+                <p>Your trusted source for authentic world-class cosmetic products. We guarantee genuineness with every purchase.</p>
+                <div class="d-flex gap-3">
+                    <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="brands.html">Brands</a></li>
+                    <li><a href="Authenticity.html">Verify</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h5>Customer Service</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h5>Contact Info</h5>
+                <p><i class="fas fa-envelope me-2"></i>info@royalauthentics.com</p>
+                <p><i class="fas fa-phone me-2"></i>0740178415</p>
+                <p><i class="fas fa-map-marker-alt me-2"></i>21/D, Colombo 3 , Srilanka</p>
+            </div>
+        </div>
+        <hr style="border-color: var(--rose-gold);">
+        <div class="text-center">
+            <p>&copy; 2025 Royal Authentics. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

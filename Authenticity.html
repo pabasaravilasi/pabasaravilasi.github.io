@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Authentics - Authenticity Check</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --pearl-white: #F8F6F0; /* cite: 12 */
+            --navy-blue: #1E3A8A; /* cite: 13 */
+            --rose-gold: #E8B4B8; /* cite: 14 */
+            --dark-navy: #0F172A; /* cite: 15 */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif; /* cite: 18 */
+            background-color: var(--pearl-white); /* cite: 19 */
+            color: var(--dark-navy);
+            margin-top: 90px; /* Adjust for fixed navbar */
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--navy-blue), var(--dark-navy)); /* cite: 22 */
+            padding: 1rem 0; /* cite: 23 */
+            box-shadow: 0 2px 20px rgba(30, 58, 138, 0.1); /* cite: 25 */
+        }
+
+        .navbar-brand img {
+            height: 50px; /* cite: 28 */
+            width: auto; /* cite: 29 */
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--pearl-white) !important; /* cite: 32 */
+            font-weight: 500; /* cite: 33 */
+            margin: 0 0.5rem; /* cite: 34 */
+            transition: color 0.3s ease; /* cite: 35 */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--rose-gold) !important; /* cite: 37 */
+        }
+
+        /* Authenticity Check Specific Styles */
+        .breadcrumb-section {
+            padding: 15px 0;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .authenticity-checker-section {
+            padding: 80px 0;
+            background-color: white;
+            min-height: calc(100vh - 250px); /* Adjust based on footer height */
+            display: flex;
+            align-items: center;
+        }
+
+        .checker-card {
+            background: var(--pearl-white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.1);
+            border: 2px solid var(--rose-gold); /* cite: 177 */
+        }
+
+        .checker-title {
+            color: var(--navy-blue);
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .checker-subtitle {
+            font-size: 1.1rem;
+            color: var(--dark-navy);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--dark-navy);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            border: 2px solid var(--navy-blue); /* cite: 180 */
+            border-radius: 15px; /* cite: 181 */
+            padding: 15px 20px; /* cite: 182 */
+            font-size: 1.1rem; /* cite: 183 */
+            margin-bottom: 20px; /* cite: 184 */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--rose-gold); /* cite: 187 */
+            box-shadow: 0 0 0 0.2rem rgba(232, 180, 184, 0.25); /* cite: 188 */
+        }
+
+        .btn-check-authenticity {
+            background: linear-gradient(45deg, var(--rose-gold), #D4A5A9);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(232, 180, 184, 0.4);
+            color: var(--pearl-white);
+            width: 100%;
+        }
+
+        .btn-check-authenticity:hover {
+            transform: translateY(-2px); /* cite: 96 */
+            box-shadow: 0 6px 20px rgba(232, 180, 184, 0.6); /* cite: 97 */
+            background: linear-gradient(45deg, #D4A5A9, var(--rose-gold)); /* cite: 98 */
+            color: var(--pearl-white);
+        }
+
+        .verification-result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border-color: #ffeeba;
+        }
+
+        .footer {
+            background: var(--navy-blue); /* cite: 224 */
+            color: var(--pearl-white); /* cite: 224 */
+            padding: 50px 0; /* cite: 224 */
+        }
+
+        .footer h5 {
+            color: var(--rose-gold); /* cite: 225 */
+            margin-bottom: 20px; /* cite: 225 */
+        }
+
+        .footer a {
+            color: var(--pearl-white); /* cite: 226 */
+            text-decoration: none; /* cite: 226 */
+            transition: color 0.3s ease; /* cite: 226 */
+        }
+
+        .footer a:hover {
+            color: var(--rose-gold); /* cite: 227 */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/c87d6c4b-2bac-49c9-b97d-a57d1cfb4288.png" alt="Royal Authentics"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="brands.html">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="Authenticity.html">Authenticity</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Authenticity Check</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="authenticity-checker-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8">
+                    <div class="checker-card">
+                        <h2 class="checker-title">Authenticity Check</h2>
+                        <p class="checker-subtitle">Please enter the required details accurately to check for the authenticity of your product.</p>
+                        
+                        <form id="authenticityForm">
+                            <div class="mb-3">
+                                <label for="orderId" class="form-label">Your Order ID</label>
+                                <input type="text" class="form-control" id="orderId" placeholder="Type your order ID">
+                            </div>
+                            <div class="mb-3">
+                                <label for="serialNumber" class="form-label">Decant Serial Number</label>
+                                <input type="text" class="form-control" id="serialNumber" placeholder="Type your decant serial number">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Type your email">
+                            </div>
+                            <a href="reciept.html">
+                                <button type="submit" class="btn btn-check-authenticity" onclick="checkAuthenticity(event)">Check Authenticity</button>
+                            </a>
+                            
+                        </form>
+                        
+                        <div id="verificationResult" class="verification-result d-none">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h5>Royal Authentics</h5>
+                    <p>Your trusted source for authentic world-class cosmetic products. We guarantee genuineness with every purchase.</p> <div class="d-flex gap-3">
+                        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html#home">Home</a></li> <li><a href="brands.html">Brands</a></li> <li><a href="#authenticity">Verify</a></li> <li><a href="index.html#about">About</a></li> </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Customer Service</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Contact Us</a></li> <li><a href="#">Shipping Info</a></li> <li><a href="#">Returns</a></li> <li><a href="#">FAQ</a></li> </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-envelope me-2"></i>info@royalauthentics.com</p> <p><i class="fas fa-phone me-2"></i>0740178415</p> <p><i class="fas fa-map-marker-alt me-2"></i>21/D, Colombo 3 , Srilanka</p> </div>
+            </div>
+            <hr style="border-color: var(--rose-gold);">
+            <div class="text-center">
+                <p>&copy; 2025 Royal Authentics. All rights reserved.</p> </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function checkAuthenticity(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const orderId = document.getElementById('orderId').value.trim();
+            const serialNumber = document.getElementById('serialNumber').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const resultDiv = document.getElementById('verificationResult');
+            resultDiv.classList.remove('d-none'); // Show the result div
+
+            // Basic validation
+            if (!orderId || !serialNumber || !email) {
+                resultDiv.innerHTML = '<div class="alert alert-warning"><i class="fas fa-exclamation-triangle me-2"></i>Please fill in all fields.</div>';
+                return;
+            }
+
+            // Simulate an authenticity check (replace with actual backend logic)
+            // For demonstration:
+            // - Order ID "AUTH123" and Serial "SN456" with any email will pass.
+            // - Order ID "FAKE789" with any serial/email will fail.
+            // - Any other input will show "pending".
+
+            if (orderId === "AUTH123" && serialNumber === "SN456") {
+                resultDiv.innerHTML = '<div class="alert alert-success"><i class="fas fa-check-circle me-2"></i><strong>Authenticity Confirmed!</strong> Your product is genuine.</div>';
+            } else if (orderId === "FAKE789") {
+                resultDiv.innerHTML = '<div class="alert alert-danger"><i class="fas fa-times-circle me-2"></i><strong>Authenticity Failed!</strong> This product could not be verified.</div>';
+            } else {
+                resultDiv.innerHTML = '<div class="alert alert-info"><i class="fas fa-info-circle me-2"></i>Verification in progress. Please double-check your details if results are unexpected.</div>';
+            }
+        }
+    </script>
+</body>
+</html>

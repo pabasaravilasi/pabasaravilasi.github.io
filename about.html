@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Authentics - About Us</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --pearl-white: #F8F6F0; /* cite: 12 */
+            --navy-blue: #1E3A8A; /* cite: 13 */
+            --rose-gold: #E8B4B8; /* cite: 14 */
+            --dark-navy: #0F172A; /* cite: 15 */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif; /* cite: 18 */
+            background-color: var(--pearl-white); /* cite: 19 */
+            color: var(--dark-navy);
+            margin-top: 90px; /* Adjust for fixed navbar */
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--navy-blue), var(--dark-navy)); /* cite: 22 */
+            padding: 1rem 0; /* cite: 23 */
+            box-shadow: 0 2px 20px rgba(30, 58, 138, 0.1); /* cite: 25 */
+        }
+
+        .navbar-brand img {
+            height: 50px; /* cite: 28 */
+            width: auto; /* cite: 29 */
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--pearl-white) !important; /* cite: 32 */
+            font-weight: 500; /* cite: 33 */
+            margin: 0 0.5rem; /* cite: 34 */
+            transition: color 0.3s ease; /* cite: 35 */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--rose-gold) !important; /* cite: 37 */
+        }
+
+        /* About Page Specific Styles */
+        .breadcrumb-section {
+            padding: 15px 0;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .about-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .about-section h3 {
+            font-size: 1.8rem;
+            color: var(--dark-navy);
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--rose-gold);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px; /* Space below image */
+        }
+
+        .testimonial-about-page {
+            background-color: var(--pearl-white);
+            padding: 40px 0;
+        }
+
+        .testimonial-about-page .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 15px 0; /* Adjust margin for testimonials on this page */
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.1);
+            border-left: 4px solid var(--rose-gold); /* cite: 228 */
+        }
+
+        .testimonial-about-page .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .testimonial-about-page .testimonial-card h6 {
+            color: var(--navy-blue); /* cite: 245 */
+            font-weight: 600;
+        }
+
+        .quote-icon {
+            font-size: 2rem;
+            color: var(--rose-gold);
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .footer {
+            background: var(--navy-blue); /* cite: 224 */
+            color: var(--pearl-white); /* cite: 224 */
+            padding: 50px 0; /* cite: 224 */
+        }
+
+        .footer h5 {
+            color: var(--rose-gold); /* cite: 225 */
+            margin-bottom: 20px; /* cite: 225 */
+        }
+
+        .footer a {
+            color: var(--pearl-white); /* cite: 226 */
+            text-decoration: none; /* cite: 226 */
+            transition: color 0.3s ease; /* cite: 226 */
+        }
+
+        .footer a:hover {
+            color: var(--rose-gold); /* cite: 227 */
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/c87d6c4b-2bac-49c9-b97d-a57d1cfb4288.png" alt="Royal Authentics"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="brands.html">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link" href="authenticity.html">Authenticity</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container">
+            <h2 class="text-center">About Us</h2>
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6">
+                  <img src="images/unnamed1234.png" alt="Our Story" class="about-image">
+                </div>
+                <div class="col-lg-6">
+                    <p>Welcome to Royal Authentics, your premier destination for genuine world-class cosmetic products. We are dedicated to providing beauty enthusiasts with access to the most sought-after brands, ensuring every product you receive is 100% authentic and of the highest quality. Our journey began with a simple mission: to eliminate the uncertainty from online beauty shopping by offering an ironclad guarantee of genuineness for every item in our collection. [cite: 246]</p>
+                    <p>At Royal Authentics, we believe that true beauty begins with trust. That's why we meticulously source our products directly from authorized distributors and brands, implementing stringent verification processes. Our unique authenticity check system, backed by individual product serial numbers, empowers you to confirm the legitimacy of your purchase, giving you unparalleled peace of mind.</p>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="mb-4">Cruelty-free beauty, at your fingertips</h3>
+                    <p>We are passionate about beauty that is both effective and ethical. Royal Authentics is committed to offering a selection that prioritizes responsible practices. While our primary focus is authenticity, we actively work towards featuring brands that align with cruelty-free principles, allowing you to indulge in beauty knowing it respects all living beings. We continually update our inventory to include products that are not tested on animals, empowering you to make conscious choices for your beauty routine.</p>
+                    <p>Our commitment extends beyond just the products; it's about fostering a community that values transparency and integrity. We aim to be your trusted partner in discovering the best in skincare, makeup, and fragrances, all delivered with the assurance of Royal Authentics quality.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center mb-4">
+                    <h3 class="d-inline-block">Express yourself with our world-class beauty</h3>
+                </div>
+                <div class="col-12">
+                    <p class="text-center">Whether you're looking for innovative skincare solutions, vibrant makeup essentials, or captivating fragrances, Royal Authentics brings the world's most reputable brands directly to you. Our curated collection is designed to help you explore, experiment, and express your unique style with confidence. We believe that everyone deserves to experience the luxury of authentic beauty, and we are here to make that a reality, one genuine product at a time. Join the Royal Authentics family and redefine your beauty journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial-about-page">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>"Amazing authentic products! The verification system gives me complete confidence in my purchases." [cite: 243]</p>
+                        <h6>-pabasara vilasi.</h6>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>"Finally found a reliable source for genuine cosmetics. Royal Authentics is my go-to now!"</p>
+                        <h6>- kushaan jayakody .</h6>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>"Love the authenticity checker feature. It's so easy to verify my products are genuine." [cite: 245]</p>
+                        <h6>- methmini rathnayake.</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h5>Royal Authentics</h5>
+                    <p>Your trusted source for authentic world-class cosmetic products. We guarantee genuineness with every purchase.</p> <div class="d-flex gap-3">
+                        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html#home">Home</a></li> <li><a href="brands.html">Brands</a></li> <li><a href="authenticity.html">Verify</a></li>
+                        <li><a class="text-rose-gold" href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Customer Service</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Contact Us</a></li> <li><a href="#">Shipping Info</a></li> <li><a href="#">Returns</a></li> <li><a href="#">FAQ</a></li> </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-envelope me-2"></i>info@royalauthentics.com</p> <p><i class="fas fa-phone me-2"></i>0740178415</p> 
+                    <p><i class="fas fa-map-marker-alt me-2"></i>21/D, Colombo 3 , Srilanka</p> 
+                </div>
+            </div>
+            <hr style="border-color: var(--rose-gold);">
+            <div class="text-center">
+                <p>&copy; 2025 Royal Authentics. All rights reserved.</p> </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

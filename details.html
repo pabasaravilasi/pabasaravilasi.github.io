@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Authentics - The Ordinary Niacinamide 5% Emulsion</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --pearl-white: #F8F6F0; /* cite: 12 */
+            --navy-blue: #1E3A8A; /* cite: 13 */
+            --rose-gold: #E8B4B8; /* cite: 14 */
+            --dark-navy: #0F172A; /* cite: 15 */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif; /* cite: 18 */
+            background-color: var(--pearl-white); /* cite: 19 */
+            color: var(--dark-navy);
+            margin-top: 90px; /* Adjust for fixed navbar */
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--navy-blue), var(--dark-navy)); /* cite: 22 */
+            padding: 1rem 0; /* cite: 23 */
+            box-shadow: 0 2px 20px rgba(30, 58, 138, 0.1); /* cite: 25 */
+        }
+
+        .navbar-brand img {
+            height: 50px; /* cite: 28 */
+            width: auto; /* cite: 29 */
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--pearl-white) !important; /* cite: 32 */
+            font-weight: 500; /* cite: 33 */
+            margin: 0 0.5rem; /* cite: 34 */
+            transition: color 0.3s ease; /* cite: 35 */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--rose-gold) !important; /* cite: 37 */
+        }
+
+        /* Product Page Specific Styles */
+        .breadcrumb-section {
+            padding: 15px 0;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product-detail-section {
+            padding: 50px 0;
+            background-color: white;
+        }
+
+        .product-image-gallery img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .product-image-gallery img:hover {
+            transform: scale(1.02);
+        }
+
+        .main-product-image {
+            border: 1px solid var(--rose-gold);
+            padding: 5px;
+            box-shadow: 0 8px 25px rgba(232, 180, 184, 0.3);
+        }
+
+        .thumbnail-images .col {
+            padding: 5px;
+        }
+
+        .thumbnail-images img {
+            border: 1px solid #ddd;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .thumbnail-images img.active-thumbnail {
+            border-color: var(--navy-blue);
+            box-shadow: 0 0 0 2px var(--navy-blue);
+        }
+
+        .product-info h1 {
+            font-size: 2.2rem;
+            color: var(--navy-blue);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .product-rating {
+            color: #ffc107; /* Bootstrap yellow star color */
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .product-rating .fas {
+            margin-right: 2px;
+        }
+
+        .product-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--rose-gold);
+            margin-bottom: 20px;
+        }
+
+        .product-options {
+            margin-bottom: 30px;
+        }
+
+        .product-options .form-label {
+            font-weight: 600;
+            color: var(--dark-navy);
+            margin-bottom: 10px;
+        }
+
+        .product-options .btn-check + .btn {
+            border: 1px solid var(--navy-blue);
+            color: var(--navy-blue);
+            background-color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .product-options .btn-check:checked + .btn {
+            background-color: var(--navy-blue);
+            color: var(--pearl-white);
+            border-color: var(--navy-blue);
+            box-shadow: 0 0 0 0.25rem rgba(30, 58, 138, 0.25);
+        }
+
+        .product-options .btn-check:hover + .btn {
+            background-color: var(--pearl-white);
+        }
+
+        .product-quantity {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .product-quantity input {
+            width: 70px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 8px 0;
+            margin: 0 10px;
+        }
+
+        .product-quantity .btn {
+            border-radius: 5px;
+            background-color: var(--navy-blue);
+            color: var(--pearl-white);
+            border-color: var(--navy-blue);
+            padding: 8px 12px;
+        }
+
+        .product-quantity .btn:hover {
+            background-color: var(--dark-navy);
+            border-color: var(--dark-navy);
+        }
+
+        .btn-add-to-cart {
+            background-color: var(--rose-gold);
+            color: var(--pearl-white);
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #D4A5A9;
+            transform: translateY(-2px);
+            color: var(--pearl-white);
+        }
+
+        .product-description-tabs .nav-link {
+            color: var(--navy-blue);
+            font-weight: 600;
+            border: none;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px; /* To prevent gap with active border */
+        }
+
+        .product-description-tabs .nav-link.active {
+            border-bottom-color: var(--rose-gold);
+            color: var(--rose-gold);
+        }
+
+        .product-description-tabs .tab-pane {
+            padding: 25px 0;
+            color: var(--dark-navy);
+            line-height: 1.7;
+        }
+
+        .footer {
+            background: var(--navy-blue); /* cite: 224 */
+            color: var(--pearl-white); /* cite: 224 */
+            padding: 50px 0; /* cite: 224 */
+        }
+
+        .footer h5 {
+            color: var(--rose-gold); /* cite: 225 */
+            margin-bottom: 20px; /* cite: 225 */
+        }
+
+        .footer a {
+            color: var(--pearl-white); /* cite: 226 */
+            text-decoration: none; /* cite: 226 */
+            transition: color 0.3s ease; /* cite: 226 */
+        }
+
+        .footer a:hover {
+            color: var(--rose-gold); /* cite: 227 */
+        }
+
+        @media (max-width: 991.98px) {
+            .product-image-gallery, .product-info {
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+            <img src="images/c87d6c4b-2bac-49c9-b97d-a57d1cfb4288.png" alt="Royal Authentics">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="brands.html">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Authenticity.html">Authenticity</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Home</a></li>
+                    <li class="breadcrumb-item"><a href="brands.html" class="text-decoration-none text-muted">Brands</a></li>
+                    <li class="breadcrumb-item"><a href="brands.html#the-ordinary" class="text-decoration-none text-muted">The Ordinary</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Niacinamide 5% Face and Body Emulsion 100ml</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 product-image-gallery">
+                    <div class="main-image mb-3">
+                      <img id="mainProductImage" src="images/TheOrdinaryNiacinamide5_FaceandBodyEmulsion100mlWithBox2.webp" alt="The Ordinary Niacinamide 5% Face and Body Emulsion" class="img-fluid rounded">
+                    </div>
+                    <div class="row thumbnail-images justify-content-center">
+                        <div class="col-3">
+                          <img src="images/ord-glycolic-acid-exfoliating-toner-model-application-with-benefits.webp" alt="Thumbnail 1" class="img-fluid rounded active-thumbnail" onclick="changeMainImage(this)">
+                        </div>
+                        <div class="col-3">
+                          <img src="images/ord-glycolic-acid-exfoliating-toner-benefits-graphic.webp" alt="Thumbnail 2" class="img-fluid rounded" onclick="changeMainImage(this)">
+                        </div>
+                        <div class="col-3">
+                          <img src="images/ord-glycolic-before-after-radiance.webp" alt="Thumbnail 3" class="img-fluid rounded" onclick="changeMainImage(this)">
+                        </div>
+                        <div class="col-3">
+                          <img src="images/ord-niacainamide-zinc-blemish-serum-benefits-graphic.webp" alt="Thumbnail 4" class="img-fluid rounded" onclick="changeMainImage(this)">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 product-info">
+                    <h1 class="mb-0">The Ordinary Niacinamide 5% Face and Body Emulsion 100ml</h1>
+                    <div class="product-rating mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.5/5)
+                        <span class="text-muted ms-2">(150 Reviews)</span>
+                    </div>
+                    <p class="product-price">Rs10,750.00</p>
+
+                    <div class="product-options mb-4">
+                        <label for="productSize" class="form-label">Size:</label>
+                        <div class="btn-group" role="group" aria-label="Product size options">
+                            <input type="radio" class="btn-check" name="productSize" id="size100ml" autocomplete="off" checked>
+                            <label class="btn btn-outline-primary" for="size100ml">100ml</label>
+
+                            <input type="radio" class="btn-check" name="productSize" id="size50ml" autocomplete="off" disabled>
+                            <label class="btn btn-outline-primary" for="size50ml">50ml (Out of Stock)</label>
+                        </div>
+                    </div>
+
+                    <div class="product-quantity mb-4">
+                        <label for="quantity" class="form-label mb-0 me-3">Quantity:</label>
+                        <button class="btn btn-outline-dark" onclick="changeQuantity(-1)">-</button>
+                        <input type="text" id="quantity" value="1" class="form-control" readonly>
+                        <button class="btn btn-outline-dark" onclick="changeQuantity(1)">+</button>
+                    </div>
+                    
+                    <button class="btn btn-add-to-cart">Buy Now&nbsp; </button>
+
+                    <div class="mt-4">
+                        <p class="text-muted small">
+                            <i class="fas fa-truck me-2"></i>Free shipping on orders over Rs. 15,000.00
+                        </p>
+                        <p class="text-muted small">
+                            <i class="fas fa-sync-alt me-2"></i>Easy 30-day returns
+                        </p>
+                        <p class="text-muted small">
+                            <i class="fas fa-shield-alt me-2"></i>100% Authentic Product Guarantee 
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <ul class="nav nav-tabs product-description-tabs" id="productTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="ingredients-tab" data-bs-toggle="tab" data-bs-target="#ingredients" type="button" role="tab" aria-controls="ingredients" aria-selected="false">Ingredients</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="howtouse-tab" data-bs-toggle="tab" data-bs-target="#howtouse" type="button" role="tab" aria-controls="howtouse" aria-selected="false">How to Use</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews (150)</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="productTabsContent">
+                        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                            <p>This lightweight, non-comedogenic emulsion with 5% Niacinamide (Vitamin B3) and a blend of amino acids is formulated to support skin barrier function, reduce trans-epidermal water loss, and improve overall skin hydration. It helps to even out skin tone, minimize the appearance of pores, and reduce redness. Suitable for both face and body, it leaves skin feeling smooth, hydrated, and looking more radiant.</p>
+                            <p>Key Benefits:</p>
+                            <ul>
+                                <li>Supports healthy skin barrier function.</li>
+                                <li>Reduces trans-epidermal water loss.</li>
+
+                                <li>Improves skin hydration and elasticity.</li>
+                                <li>Visibly brightens and evens skin tone.</li>
+                                <li>Minimizes the appearance of enlarged pores.</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="ingredients" role="tabpanel" aria-labelledby="ingredients-tab">
+                            <p>Aqua (Water), Niacinamide, Propanediol, Caprylic/Capric Triglyceride, Hydrogenated Lecithin, Dimethicone, Glycerin, Phenoxyethanol, Sodium Acrylates Copolymer, Lecithin, Ethylhexylglycerin, Sodium Phytate, Tocopherol, Arginine, Aspartic Acid, Glycine, Alanine, Serine, Valine, Isoleucine, Proline, Threonine, Histidine, Phenylalanine, Sodium PCA, PCA, Sodium Lactate.</p>
+                            <p class="small text-muted"><em>Please note: Ingredient lists may change or vary from time to time. Please refer to the ingredient list on the product package you receive for the most up to date list of ingredients.</em></p>
+                        </div>
+                        <div class="tab-pane fade" id="howtouse" role="tabpanel" aria-labelledby="howtouse-tab">
+                            <p>Apply a few drops to the face and body in the morning and evening as part of your daily skincare routine. If irritation occurs, cease use and consult a physician. Use only as directed on unbroken skin. Patch testing prior to use is advised. Keep out of reach of children.</p>
+                        </div>
+                        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                            <h5>Customer Reviews:</h5>
+                            <div class="mb-3 border-bottom pb-3">
+                                <div class="product-rating small">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="ms-2">By Sarah M. on 2024-06-25</span>
+                                </div>
+                                <p class="mb-1">"This emulsion is fantastic! My skin feels so much smoother and less red. A staple in my routine now."</p>
+                            </div>
+                            <div class="mb-3 border-bottom pb-3">
+                                <div class="product-rating small">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                    <span class="ms-2">By David K. on 2024-06-18</span>
+                                </div>
+                                <p class="mb-1">"Good product, absorbed quickly. Saw some improvement in skin texture."</p>
+                            </div>
+                            <button class="btn btn-outline-secondary btn-sm mt-3">Load More Reviews</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h5>Royal Authentics</h5>
+                    <p>Your trusted source for authentic world-class cosmetic products. We guarantee genuineness with every purchase. [cite: 246]</p>
+                    <div class="d-flex gap-3">
+                        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="brands.html">Brands</a></li>
+                        <li><a href="index.html#authenticity">Verify</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Customer Service</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-envelope me-2"></i>info@royalauthentics.com</p>
+                    <p><i class="fas fa-phone me-2"></i>+1 (555) 123-4567</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>123 Beauty Ave, City, State</p>
+                </div>
+            </div>
+            <hr style="border-color: var(--rose-gold);">
+            <div class="text-center">
+                <p>&copy; 2025 Royal Authentics. All rights reserved. [cite: 248]</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+        function changeMainImage(thumbnail) {
+            const mainImage = document.getElementById('mainProductImage');
+            mainImage.src = thumbnail.src;
+
+            // Remove active-thumbnail class from all thumbnails
+            const thumbnails = document.querySelectorAll('.thumbnail-images img');
+            thumbnails.forEach(img => img.classList.remove('active-thumbnail'));
+
+            // Add active-thumbnail class to the clicked thumbnail
+            thumbnail.classList.add('active-thumbnail');
+        }
+
+        function changeQuantity(change) {
+            const quantityInput = document.getElementById('quantity');
+            let currentQuantity = parseInt(quantityInput.value);
+            currentQuantity += change;
+            if (currentQuantity < 1) {
+                currentQuantity = 1;
+            }
+            quantityInput.value = currentQuantity;
+        }
+    </script>
+</body>
+</html>
